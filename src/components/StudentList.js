@@ -20,7 +20,6 @@ function StudentList(props) {
             
     }
 
-
     useEffect(() => {
     
         var requestOptions = {
@@ -62,6 +61,7 @@ function StudentList(props) {
                     </div>
                     </div>
                     <div>
+                       
                         {
                             students.map(
                                 (student, key) => (<StudentData object={student} key={key}></StudentData>)

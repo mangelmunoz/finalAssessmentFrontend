@@ -19,11 +19,7 @@ function AddStudentForm(props) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    console.log(studentData);
-
     var raw = JSON.stringify(studentData);
-
-    console.log(raw);
 
     let requestOptionsPost = {
       method: "POST",
@@ -75,8 +71,9 @@ function AddStudentForm(props) {
   };
 
   return (
-    <div>
-      <form>
+    <div className="addStudentDiv card">
+        <div className="card-body">
+        <form>
         <div class="mb-3">
           <label for="exampleInputName" class="form-label">
             Name
@@ -119,6 +116,8 @@ function AddStudentForm(props) {
           Create new student
         </button>
       </form>
+        </div>
+      
     </div>
   );
 }

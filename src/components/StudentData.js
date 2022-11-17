@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
@@ -8,21 +8,34 @@ function StudentData(props){
 
 
     const navigate = useNavigate();
-
-
+    
     const handleDeleteStudent = (event) => {
 
         event.preventDefault();
 
-        navigate('../deleteStudent/' + props.object.id);
-            
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        let requestOptionsPost = {
+        method: "DELETE",
+        headers: myHeaders,
+        redirect: "follow",
+        };
+
+        console.log(props.object.id)
+        fetch("http://localhost:8080/api/student/delete/" + props.object.id, requestOptionsPost)
+        .then((response) => response.json())
+        .then(() => navigate("../home"))
+        .catch((error) => console.log("error", error));
+
     }
+
 
     const handleUpdateStudent = (event) => {
 
         event.preventDefault();
 
-        navigate('../studentData/' + props.object.id);
+        navigate('../update/' + props.object.id);
             
     }
 
