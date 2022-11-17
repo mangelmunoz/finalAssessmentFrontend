@@ -11,6 +11,16 @@ function StudentList(props) {
 
     const navigate = useNavigate();
 
+
+    const handleAddStudent = (event) => {
+
+        event.preventDefault();
+
+        navigate('../addSudentPage/');
+            
+    }
+
+
     useEffect(() => {
     
         var requestOptions = {
@@ -40,9 +50,17 @@ function StudentList(props) {
 
     return (
 
-        <div className="row justify-content-center margins">
-            <div className="card col-3">
+        <div className="row justify-content-center studentListDiv">
+            <div className="card col-6">
                 <div className="card-body">
+                    <div className="row">
+                        <div className="col-5">
+                            <label>List of students</label>
+                        </div>
+                        <div className="offset-2 col-5 topButtons">
+                        <button className='btn btn-primary addStudentButton' type="button" onClick={handleAddStudent}>Add new student</button>
+                    </div>
+                    </div>
                     <div>
                         {
                             students.map(

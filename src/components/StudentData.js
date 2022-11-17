@@ -1,18 +1,20 @@
-import { useEffect, useState, useNavigate } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 
 function StudentData(props){
 
-    // const navigate = useNavigate();
+
+    const navigate = useNavigate();
 
 
     const handleDeleteStudent = (event) => {
 
         event.preventDefault();
 
-        // navigate('../deleteStudent/' + props.object.id);
+        navigate('../deleteStudent/' + props.object.id);
             
     }
 
@@ -20,7 +22,7 @@ function StudentData(props){
 
         event.preventDefault();
 
-        // navigate('../studentData/' + props.object.id);
+        navigate('../studentData/' + props.object.id);
             
     }
 
@@ -28,9 +30,9 @@ function StudentData(props){
     
     return (
         <>
-           <div className="studenDetails card" id={props.object.id}>
+           <div className="studentDetails card" id={props.object.id}>
                 
-                <div className='card-body flightDetailsCardBody'>
+                <div className='card-body studentDetailsCardBody'>
                     <div className="studentName">
                         <label>{props.object.firstName + " " + props.object.lastName}</label>
                     </div>
@@ -40,9 +42,10 @@ function StudentData(props){
                     <div className="email">
                         <label>{props.object.email}</label>
                     </div>
-                    
-                    <button className='btn btn-success' type="button" onClick={handleDeleteStudent}>Delete</button>
-                    <button className='btn btn-success' type="button" onClick={handleUpdateStudent}>Update data</button>
+                    <div className="buttonsDiv">
+                        <button className='btn btn-success deleteButton' type="button" onClick={handleDeleteStudent}>Delete</button>
+                        <button className='btn btn-success updateButton' type="button" onClick={handleUpdateStudent}>Update data</button>
+                    </div>
                     
                 </div>
            </div>
