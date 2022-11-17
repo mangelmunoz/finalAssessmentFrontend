@@ -16,7 +16,7 @@ function StudentList(props) {
 
         event.preventDefault();
 
-        navigate('../addSudentPage/');
+        navigate('../add');
             
     }
 
